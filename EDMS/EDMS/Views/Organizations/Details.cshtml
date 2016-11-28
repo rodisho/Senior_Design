@@ -1,0 +1,114 @@
+﻿@model EDMS.Models.Organization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Website)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FundingAgencies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FundingAgencies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FundingAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FundingAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearFounded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearFounded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfEmployees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfEmployees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isVisible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isVisible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartnerOrganizations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartnerOrganizations)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

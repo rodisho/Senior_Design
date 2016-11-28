@@ -38,8 +38,8 @@ namespace EDMS
                 var user = new ApplicationUser();
                 user.Email = "whijazi@umich.edu";
                 user.Id = Guid.NewGuid().ToString();
-                user.UserName = "whijazi";
-                string userPWD = "wh123456";
+                user.UserName = "whijazi@umich.edu";
+                string userPWD = "Wwas8eem_8_9";
                 
 
                 var chkUser = UserManager.Create(user, userPWD);
