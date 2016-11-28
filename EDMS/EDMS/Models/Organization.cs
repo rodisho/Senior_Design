@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
+
 namespace EDMS.Models
 {
     public class Organization
@@ -20,6 +22,14 @@ namespace EDMS.Models
         public long NumberOfEmployees { get; set; }
         public bool isVisible { get; set; }
         public string PartnerOrganizations { get; set; }
+        public Organization()
+        {
+            isVisible = false;
+        }
 
     }
+
+    
+
+    
 }

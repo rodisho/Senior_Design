@@ -51,7 +51,7 @@ namespace EDMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Street,City,ZipCode,Description,Website,FundingAgencies,FundingAmount,YearFounded,NumberOfEmployees,isVisible,PartnerOrganizations")] Organization organization)
+        public ActionResult Create([Bind(Include = "Id,Name,Street,City,ZipCode,Description,Website,FundingAgencies,FundingAmount,YearFounded,NumberOfEmployees,PartnerOrganizations")] Organization organization)
         {
             if (ModelState.IsValid)
             {
