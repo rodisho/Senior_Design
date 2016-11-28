@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EDMS.Models;
+using EDMS.ViewModels;
 
 namespace EDMS.Controllers
 {
@@ -17,7 +18,11 @@ namespace EDMS.Controllers
         // GET: Organizations
         public ActionResult Index()
         {
-            return View(db.Organizations.ToList());
+            string query = "SELECT orgs.Name, orgs.City, orgs.ZipCode, orgs.Website, orgs.FundingAgencies, orgs.YearFounded FROM Organizations orgs";
+
+            IEnumerable<OrgInfoGroup> data = db.Database.SqlQuery<OrgInfoGroup>(query);
+
+            return View(data.ToList());
         }
 
         // GET: Organizations/Details/5

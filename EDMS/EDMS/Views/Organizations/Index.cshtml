@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EDMS.Models.Organization>
+﻿@model List<EDMS.ViewModels.OrgInfoGroup>
 
 @{
     ViewBag.Title = "Index";
@@ -12,40 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model[0].Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Street)
+            @Html.DisplayNameFor(model => model[0].City)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model[0].ZipCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ZipCode)
+            @Html.DisplayNameFor(model => model[0].Website)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model[0].FundingAgencies)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Website)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FundingAgencies)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FundingAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YearFounded)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfEmployees)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isVisible)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PartnerOrganizations)
+            @Html.DisplayNameFor(model => model[0].YearFounded)
         </th>
         <th></th>
     </tr>
@@ -56,16 +38,10 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.City)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Website)
@@ -74,19 +50,7 @@
             @Html.DisplayFor(modelItem => item.FundingAgencies)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FundingAmount)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.YearFounded)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfEmployees)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isVisible)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PartnerOrganizations)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
