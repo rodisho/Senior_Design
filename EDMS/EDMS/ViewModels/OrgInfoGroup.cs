@@ -18,5 +18,6 @@ namespace EDMS.ViewModels
         public string FundingAgencies { get; set; }
         [Display(Name = "Year Founded")]
         public string YearFounded { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

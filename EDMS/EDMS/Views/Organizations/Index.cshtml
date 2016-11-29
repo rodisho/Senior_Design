@@ -54,7 +54,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.YearFounded)
         </td>
-        @if ((User.IsInRole("Admin") || User.IsInRole("User")))
+        @if ((User.IsInRole("Admin") || (User.IsInRole("User")&&User.Identity.Name==item.CreatedBy)))
         {
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

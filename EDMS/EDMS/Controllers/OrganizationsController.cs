@@ -18,8 +18,16 @@ namespace EDMS.Controllers
         // GET: Organizations
         public ActionResult Index()
         {
-            string query = "SELECT orgs.Name, orgs.City, orgs.ZipCode, orgs.Website, orgs.FundingAgencies, orgs.YearFounded FROM Organizations orgs";
-
+            string query = "";
+            if (User.IsInRole("User"))
+            {
+                query = "SELECT orgs.Id, orgs.Name, orgs.City, orgs.ZipCode, orgs.Website, orgs.FundingAgencies, orgs.YearFounded, orgs.CreatedBy FROM Organizations orgs WHERE orgs.IsVisible = 'true' OR orgs.CreatedBy = '" + User.Identity.Name + "'";
+            }
+            else
+            if(User.IsInRole("Admin"))
+            {
+                query = "SELECT orgs.Id, orgs.Name, orgs.City, orgs.ZipCode, orgs.Website, orgs.FundingAgencies, orgs.YearFounded, orgs.CreatedBy FROM Organizations orgs";
+            }
             IEnumerable<OrgInfoGroup> data = db.Database.SqlQuery<OrgInfoGroup>(query);
 
             return View(data.ToList());
@@ -93,7 +101,7 @@ namespace EDMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Street,City,ZipCode,Description,Website,FundingAgencies,FundingAmount,YearFounded,NumberOfEmployees,isVisible,PartnerOrganizations")] Organization organization)
+        public ActionResult Edit([Bind(Include = "Id,Name,Street,City,ZipCode,Description,Website,FundingAgencies,FundingAmount,YearFounded,NumberOfEmployees,isVisible,PartnerOrganizations,CreatedBy")] Organization organization)
         {
             if (ModelState.IsValid)
             {

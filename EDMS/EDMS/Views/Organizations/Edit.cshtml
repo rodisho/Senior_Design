@@ -96,7 +96,8 @@
                 @Html.ValidationMessageFor(model => model.NumberOfEmployees, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        @if (User.IsInRole("Admin"))
+        {
         <div class="form-group">
             @Html.LabelFor(model => model.isVisible, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -106,6 +107,7 @@
                 </div>
             </div>
         </div>
+        }
 
         <div class="form-group">
             @Html.LabelFor(model => model.PartnerOrganizations, htmlAttributes: new { @class = "control-label col-md-2" })
