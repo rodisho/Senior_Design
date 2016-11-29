@@ -55,6 +55,16 @@ namespace EDMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(User.IsInRole("User"))
+                {
+                    organization.isVisible = false;
+                }
+                else
+                if(User.IsInRole("Admin"))
+                {
+                    organization.isVisible = true;
+                }
+                organization.CreatedBy = User.Identity.Name.ToString();
                 db.Organizations.Add(organization);
                 db.SaveChanges();
                 return RedirectToAction("Index");

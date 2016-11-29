@@ -22,6 +22,7 @@ namespace EDMS.Models
         public long NumberOfEmployees { get; set; }
         public bool isVisible { get; set; }
         public string PartnerOrganizations { get; set; }
+        public string CreatedBy { get; set; }
         public Organization()
         {
             isVisible = false;
