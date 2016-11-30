@@ -98,6 +98,11 @@ namespace EDMS.Controllers
             {
                 return HttpNotFound();
             }
+
+            if(organization.CreatedBy != User.Identity.Name && !User.IsInRole("Admin"))
+            {
+                return HttpNotFound();
+            }
             return View(organization);
         }
 
