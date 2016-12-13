@@ -21,16 +21,16 @@ namespace EDMS.Controllers
             string query = "";
             if (User.IsInRole("User"))
             {
-                query = "SELECT orgs.Id, orgs.Name, orgs.Address, orgs.MissionStatement, orgs.CreatedBy FROM Organizations orgs WHERE orgs.IsVisible = 'true' OR orgs.CreatedBy = '" + User.Identity.Name + "'";
+                query = "SELECT orgs.Id,orgs.Name, orgs.MissionStatement, orgs.CreatedBy, CASE WHEN orgs.AddressIsVisible = 'False' THEN ' ' WHEN orgs.AddressIsVisible = 'True'	THEN Address END AS Address, CASE WHEN orgs.YearFoundedIsVisible = 'False' THEN ' ' WHEN orgs.YearFoundedIsVisible = 'True'	THEN YearFounded END AS YearFounded FROM Organizations orgs WHERE orgs.IsVisible = 'true' OR orgs.CreatedBy = '" + User.Identity.Name + "'";
             }
             else
             if(User.IsInRole("Admin"))
             {
-                query = "SELECT orgs.Id, orgs.Name, orgs.Address, orgs.MissionStatement, orgs.CreatedBy FROM Organizations orgs";
+                query = "SELECT orgs.Id,orgs.Name, orgs.MissionStatement, orgs.CreatedBy, CASE WHEN orgs.AddressIsVisible = 'False' THEN ' ' WHEN orgs.AddressIsVisible = 'True'	THEN Address END AS Address, CASE WHEN orgs.YearFoundedIsVisible = 'False' THEN ' ' WHEN orgs.YearFoundedIsVisible = 'True'	THEN YearFounded END AS YearFounded FROM Organizations orgs";
             }
             else
             {
-                query = "SELECT orgs.Id, orgs.Name, orgs.Address, orgs.MissionStatement, orgs.CreatedBy FROM Organizations orgs WHERE IsVisible = 'true'";
+                query = "SELECT orgs.Id,orgs.Name, orgs.MissionStatement, orgs.CreatedBy, CASE WHEN orgs.AddressIsVisible = 'False' THEN ' ' WHEN orgs.AddressIsVisible = 'True'	THEN Address END AS Address, CASE WHEN orgs.YearFoundedIsVisible = 'False' THEN ' ' WHEN orgs.YearFoundedIsVisible = 'True'	THEN YearFounded END AS YearFounded FROM Organizations orgs WHERE IsVisible = 'true'";
 
             }
             IEnumerable<OrgInfoGroup> data = db.Database.SqlQuery<OrgInfoGroup>(query);
@@ -64,10 +64,12 @@ namespace EDMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Address, YearFounded, WhoFounded, ReasonForFounding,TaxExemptNonProfitStatus, MissionStatement, KeyWords, KeyActivities, NumberOfEmployees, NumberOfVolunteers, NumberOfProjectPartners, Budget, FundingSources, FundingAmount, PartnerOrganizations")] Organization organization)
+        public ActionResult Create([Bind(Include = "Id,Name,Address, YearFounded, WhoFounded, ReasonForFounding,TaxExemptNonProfitStatus, MissionStatement, KeyWords, KeyActivities, NumberOfEmployees, NumberOfVolunteers, NumberOfProjectPartners, Budget, CommunitiesNeighborhoodZipcode, FundingSoureces, Constituency, FundingSources, FundingAmount, PartnerOrganizations, AddressIsVisible, YearFoundedIsVisible")] Organization organization)
         {
             if (ModelState.IsValid)
             {
+                organization.AddressIsVisible = true;
+                organization.YearFoundedIsVisible = true;
                 if(User.IsInRole("User"))
                 {
                     organization.isVisible = false;
@@ -111,7 +113,7 @@ namespace EDMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Address, YearFounded, WhoFounded, ReasonForFounding,TaxExemptNonProfitStatus, MissionStatement, KeyWords, KeyActivities, NumberOfEmployees, NumberOfVolunteers, NumberOfProjectPartners, Budget, FundingSources, FundingAmount, PartnerOrganizations, CreatedBy")] Organization organization)
+        public ActionResult Edit([Bind(Include = "Id,Name,Address, YearFounded, WhoFounded, ReasonForFounding,TaxExemptNonProfitStatus, MissionStatement, KeyWords, KeyActivities, NumberOfEmployees, NumberOfVolunteers, NumberOfProjectPartners, Budget, CommunitiesNeighborhoodZipcode, Constituency, FundingSoureces, FundingSources, FundingAmount, PartnerOrganizations, CreatedBy, AddressIsVisible, YearFoundedIsVisible, isVisible")] Organization organization)
         {
             if (ModelState.IsValid)
             {
