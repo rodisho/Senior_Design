@@ -1,10 +1,10 @@
 ﻿@model List<EDMS.ViewModels.OrgInfoGroup>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Participating Organizations";
 }
 
-<h2>Index</h2>
+<h2>Participating Organizations</h2>
 @if ((User.IsInRole("Admin") || User.IsInRole("User")))
 {
     <p>
