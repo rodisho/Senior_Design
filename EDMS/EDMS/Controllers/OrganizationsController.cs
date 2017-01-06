@@ -38,6 +38,11 @@ namespace EDMS.Controllers
             return View(data.ToList());
         }
 
+        public ActionResult Survey()
+        {
+            return View();
+        }
+
         // GET: Organizations/Details/5
         public ActionResult Details(int? id)
         {
