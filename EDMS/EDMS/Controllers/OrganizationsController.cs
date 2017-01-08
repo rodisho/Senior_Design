@@ -38,10 +38,7 @@ namespace EDMS.Controllers
             return View(data.ToList());
         }
 
-        public ActionResult Survey()
-        {
-            return View();
-        }
+      
 
         // GET: Organizations/Details/5
         public ActionResult Details(int? id)
@@ -55,6 +52,32 @@ namespace EDMS.Controllers
             {
                 return HttpNotFound();
             }
+            return View(organization);
+        }
+
+        [Authorize]
+        public ActionResult Survey()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Survey([Bind(Include = "Id,Name,Address, YearFounded, PhoneNumber, WebPage, Email, WhoFounded, ReasonForFounding,TaxExemptNonProfitStatus, MissionStatement, KeyWords, KeyActivities, NumberOfEmployees, NumberOfVolunteers, NumberOfProjectPartners, Budget, CommunitiesNeighborhoodZipcode, FundingSoureces, Constituency, FundingSources, FundingAmount, PartnerOrganizations, OrganizationsAware, CollaboratedYesNo, Strengths, AddressIsVisible, YearFoundedIsVisible")] Organization organization)
+        {
+            if (ModelState.IsValid)
+            {
+                organization.AddressIsVisible = true;
+                organization.YearFoundedIsVisible = true;
+                               
+                organization.isVisible = false;
+               
+                organization.CreatedBy = User.Identity.Name.ToString();
+                db.Organizations.Add(organization);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(organization);
         }
 
