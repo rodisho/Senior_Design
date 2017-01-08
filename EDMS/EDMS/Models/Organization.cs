@@ -9,8 +9,7 @@ namespace EDMS.Models
 {
     public class Organization
     {
-        private string _address;
-        private string _yearFounded;
+       
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address
@@ -21,6 +20,9 @@ namespace EDMS.Models
         {
             get;set;
         }
+        public string PhoneNumber { get; set; }
+        public string WebPage { get; set; }
+        public string Email { get; set; }
         public string WhoFounded { get; set; }
         public string ReasonForFounding { get; set; }
         public string TaxExemptNonProfitStatus { get; set; }
@@ -37,6 +39,9 @@ namespace EDMS.Models
         public decimal FundingAmount { get; set; }
         public bool isVisible { get; set; }
         public string PartnerOrganizations { get; set; }
+        public string OrganizationsAware { get; set; }
+        public string CollaboratedYesNo { get; set; }
+        public string Strengths { get; set; }
         public string CreatedBy { get; set; }
         public bool AddressIsVisible { get; set; }
         public bool YearFoundedIsVisible { get; set; }

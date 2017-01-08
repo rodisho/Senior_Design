@@ -22,6 +22,89 @@
     @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
 
     @Html.Label("Phone", new { htmlAttributes = new { @class = "form-control" } })
-    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
 
+    @Html.Label("Web Page", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.WebPage, new { htmlAttributes = new { @class = "form-control" } })
+
+    @Html.Label("Email", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+
+<div class="form-group">
+    @Html.Label("What year was your organization established?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.YearFounded, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+
+<div class="form-group">
+    @Html.Label("Who founded the organization?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.WhoFounded, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+
+<div class="form-group">
+    @Html.Label("What was the reason for founding your organization?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.ReasonForFounding, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+
+<div class="form-group">
+    @Html.Label("What is your tax-exempt status or non-profit status??", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.TaxExemptNonProfitStatus, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+
+<div class="form-group">
+    @Html.Label("Who founded the organization?", new { htmlAttributes = new { @class = "form-control" } })
+    <br/>
+    @Html.Label("Statement", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.MissionStatement, new { htmlAttributes = new { @class = "form-control" } })
+
+    @Html.Label("Key Words", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.KeyWords, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("What are the key activities that your organization engages in?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.KeyActivities, new { htmlAttributes = new { @class = "form-control" } })
+</div>
+
+<div class="form-group">
+    @Html.Label("Size", new { htmlAttributes = new { @class = "form-control" } })
+    <br />
+    @Html.Label("# of Employees", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.NumberOfEmployees, new { htmlAttributes = new { @class = "form-control" } })
+
+    @Html.Label("# of Volunteers", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.NumberOfVolunteers, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("# of Project partners", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.NumberOfProjectPartners, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("Budget", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.Budget, new { htmlAttributes = new { @class = "form-control" } })
+</div>
+
+<div class="form-group">
+    @Html.Label("What communities do you work in?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.CommunitiesNeighborhoodZipcode, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+
+<div class="form-group">
+    @Html.Label("What constituency do you serve?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.Constituency, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+<div class="form-group">
+    @Html.Label("What are your primary sources of funding?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.FundingSoureces, new { htmlAttributes = new { @class = "form-control" } })
+
+</div>
+<div class="form-group">
+    @Html.Label("What other organizations are you aware of that do work related to your mission?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.OrganizationsAware, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("Have you collaborated with them?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.CollaboratedYesNo, new { htmlAttributes = new { @class = "form-control" } })
+
+    @Html.Label("What would you say their strengths are?", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.Strengths, new { htmlAttributes = new { @class = "form-control" } })
+   
 </div>
