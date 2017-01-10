@@ -45,9 +45,11 @@ namespace EDMS.Models
         public string CreatedBy { get; set; }
         public bool AddressIsVisible { get; set; }
         public bool YearFoundedIsVisible { get; set; }
+        public bool CompletedSurvey { get; set; }
         public Organization()
         {
             isVisible = false;
+            CompletedSurvey = false;
         }
 
     }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,12 +21,16 @@
                 </button>
                 @Html.ActionLink("Environment DB App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Survey", "Survey", "Organizations")</li>
+                   @if ((User.IsInRole("User") || (User.IsInRole("Admin"))))
+                   {
+                     Html.RenderAction("_MenuPartial", "Organizations"); 
+                   }
                     <li>@Html.ActionLink("Organizations", "Index", "Organizations")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -1,0 +1,6 @@
+﻿@model EDMS.ViewModels.SurveyVerified
+
+@if (Model.EmailConfirmed == false)
+{
+<li>@Html.ActionLink("Survey", "Survey", "Organizations")</li>
+}

@@ -8,8 +8,7 @@ namespace EDMS.ViewModels
 {
     public class OrgInfoGroup
     {
-        string _address;
-        string _yearFounded;
+        
         public int Id { get; set; }
         public string Name { get; set; }
         public bool AddressIsVisible { get; set; }

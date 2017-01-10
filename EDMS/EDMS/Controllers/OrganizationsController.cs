@@ -69,8 +69,10 @@ namespace EDMS.Controllers
             {
                 organization.AddressIsVisible = true;
                 organization.YearFoundedIsVisible = true;
-                               
+                db.Database.ExecuteSqlCommand("UPDATE AspNetUsers SET EmailConfirmed = 'True' WHERE UserName = '" + User.Identity.Name + "'");
+                db.SaveChanges();     
                 organization.isVisible = false;
+                organization.CompletedSurvey = true;
                
                 organization.CreatedBy = User.Identity.Name.ToString();
                 db.Organizations.Add(organization);
@@ -114,6 +116,20 @@ namespace EDMS.Controllers
             }
 
             return View(organization);
+        }
+
+        [ChildActionOnly]
+        public ActionResult _MenuPartial()
+        {
+            
+            string query = "";
+
+            query = "SELECT usr.EmailConfirmed FROM AspNetUsers usr WHERE usr.UserName = '" + User.Identity.Name + "'";
+            IEnumerable<SurveyVerified> data = db.Database.SqlQuery<SurveyVerified>(query);
+            if (!data.ToList().Any())
+                return null;
+            return PartialView(data.ToList()[0]);
+
         }
 
         // GET: Organizations/Edit/5
